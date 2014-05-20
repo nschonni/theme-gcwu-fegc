@@ -23,7 +23,7 @@
 
 .wb-slc {
 	a {
-		color: #FFF;
+		color: #fff;
 	}
 }
 
@@ -47,8 +47,9 @@
 
 #wb-sttl {
 	@extend %all-view-navigation-links;
+
 	a {
-		color: #FFFFFF !important;
+		color: #fff !important;
 
 		span {
 			line-height: normal;
@@ -58,18 +59,18 @@
 
 #wb-bc {
 	.breadcrumb {
-		margin-bottom: 0;
 		background: transparent;
+		margin-bottom: 0;
 	}
 
 	li {
-		&:before, &:after {
-			font: {
-				family: "Glyphicons Halflings";
-				size: 0.7em;
-			}
+		&:before,
+		&:after {
 			color: #333;
+			font-family: "Glyphicons Halflings";
+			font-size: 0.7em;
 		}
+
 		&:before {
 			content: "\e092";
 		}
@@ -98,10 +99,12 @@
 			&:before {
 				@extend %no-breadcrumb-icon;
 			}
+
 			&:after {
 				content: "\e091";
 				padding: 0 5px;
 			}
+
 			&:first-child {
 				&:after {
 					@extend %no-breadcrumb-icon;

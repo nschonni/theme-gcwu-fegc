@@ -1,0 +1,25 @@
+exclude:
+  - "lib/**"
+  - "node_modules/**"
+  - "dist/**"
+
+linters:
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+    exclude:
+      # Ignore values in IE8 gradient that need unquote function
+      - "src/_variables.scss"
+      - "src/views/_screen-sm-max.scss"
+  Indentation:
+    width: 1
+  Comment:
+    enabled: false
+  LeadingZero:
+    enabled: false
+  SelectorDepth:
+    enabled: false
+  NameFormat:
+    enabled: false
+  UrlFormat:
+    enabled: false

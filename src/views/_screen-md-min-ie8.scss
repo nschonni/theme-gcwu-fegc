@@ -8,11 +8,9 @@
   @title: Medium view and over (screen only) for IE8
  */
 
- body {
-	background: {
-		image: url(../assets/header-bg-ie.jpg);
-		repeat: repeat-x;
-	}
+body {
+	background-image: url("../assets/header-bg-ie.jpg");
+	background-repeat: repeat-x;
 }
 
 #wb-bnr {

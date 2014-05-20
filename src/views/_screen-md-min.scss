@@ -9,11 +9,9 @@
  */
 
 %page-background {
-	background-color:#FFF;
-	border: {
-		left: 1px solid $screen-md-page-border-color;
-		right: 1px solid $screen-md-page-border-color;
-	}
+	background-color: #fff;
+	border-left: 1px solid $screen-md-page-border-color;
+	border-right: 1px solid $screen-md-page-border-color;
 }
 
 %submenu-colors {
@@ -43,23 +41,35 @@
 }
 
 body {
-	background: {
-		image: url(../assets/header-leaf.jpg), url(../assets/header-bg.jpg);
-		repeat: no-repeat, repeat-x;
-		position: center 2.7em;
+	background-image: url("../assets/header-leaf.jpg"), url("../assets/header-bg.jpg");
+	background-position: center 2.7em;
+	background-repeat: no-repeat, repeat-x;
+
+	> {
+		main {
+			@extend %page-background;
+		}
+
+		header {
+			+ {
+				.container {
+					@extend %page-background;
+				}
+			}
+		}
 	}
 }
 
 #gcwu-sig {
-	position: absolute;
 	margin-left: 15px;
+	position: absolute;
 }
 
 #wmms {
 	@extend %brand-height;
 	@extend %float-right;
-	margin-top: 2.3em;
 	margin-right: 15px;
+	margin-top: 2.3em;
 }
 
 #wb-bar {
@@ -72,7 +82,7 @@ body {
 	margin: 15px 10px;
 
 	li {
-		padding:0;
+		padding: 0;
 	}
 
 	a {
@@ -81,7 +91,6 @@ body {
 	}
 
 	> {
-
 		li {
 			&:first-child {
 				a {
@@ -94,9 +103,9 @@ body {
 	ul {
 		li {
 			&:last-child {
-			a {
-				border-right: 0;
-			}
+				a {
+					border-right: 0;
+				}
 			}
 		}
 	}
@@ -111,32 +120,28 @@ body {
 }
 
 #wb-sttl {
-	margin: {
-		top: 5px;
-		bottom: 5px;
-	}
 	display: table-row;
+	margin-bottom: 5px;
+	margin-top: 5px;
 
 	a {
-		font-size: 1.9em;
-		text-shadow: 1px 1px 1px $screen-md-banner-text-shadow-color;
 		display: table-cell;
-		vertical-align: middle;
+		font-size: 1.9em;
 		height: 3.6em;
+		text-shadow: 1px 1px 1px $screen-md-banner-text-shadow-color;
+		vertical-align: middle;
 	}
 }
 
 #wb-srch {
 	@extend %float-right;
 	background: #146094;
-	border: {
-		left: 1px solid $screen-md-menubar-side-border-color;
-		right: 1px solid $screen-md-menubar-side-border-color;
-		top: 1px solid $screen-md-menubar-top-border-color;
-	}
-	padding: 11px 15px 6px 15px;
-	position: absolute;
+	border-left: 1px solid $screen-md-menubar-side-border-color;
+	border-right: 1px solid $screen-md-menubar-side-border-color;
+	border-top: 1px solid $screen-md-menubar-top-border-color;
 	bottom: -1px;
+	padding: 11px 15px 6px;
+	position: absolute;
 	right: 0;
 	z-index: 2;
 
@@ -148,31 +153,32 @@ body {
 	.btn {
 		@extend %search-controls-overrides;
 		@include linear-background ($screen-md-search-button-gradient-start, $screen-md-search-button-gradient-end);
-		padding: 2px 6px;
 		line-height: 1;
+		padding: 2px 6px;
 	}
 }
 
 %gcwu-theme-wb-sm-wb-navcurr {
-	background: #0F315B;
+	background: #0f315b;
 	color: #fff;
 }
+
 #wb-sm {
 	margin-top: -1px;
+
 	.nvbar {
 		@include linear-background ($screen-md-menubar-gradient-start, $screen-md-menubar-gradient-end, 1);
-		border: {
-			top: 1px solid $screen-md-menubar-top-border-color;
-			bottom: 4px solid $screen-md-menubar-bottom-border-color;
-		}
+		border-bottom: 4px solid $screen-md-menubar-bottom-border-color;
+		border-top: 1px solid $screen-md-menubar-top-border-color;
 
 		ul {
 			&.menu {
 				margin-bottom: 0;
+
 				> {
 					li {
-						padding: 0;
 						border-right: 1px solid $screen-md-menuitem-left-border-color;
+						padding: 0;
 
 						> {
 							a {
@@ -197,14 +203,16 @@ body {
 	}
 
 	.active {
-		a, summary {
+		a,
+		summary {
 			@extend %submenu-colors;
 		}
 	}
 
-	a, summary {
-		display: block;
+	a,
+	summary {
 		color: $screen-md-menubar-text-color;
+		display: block;
 		font-weight: 700;
 		padding: 0.48em 0.79em;
 		text-decoration: none;
@@ -213,12 +221,11 @@ body {
 	.sm {
 		@extend %submenu-colors;
 		@extend %medium-view-navigation-links;
-		border: {
-			bottom: 4px solid $screen-md-submenu-bottom-border-color;
-			radius: 0 0 3px 3px;
-		}
+		border-bottom: 4px solid $screen-md-submenu-bottom-border-color;
+		border-radius: 0 0 3px 3px;
 
-		a, summary {
+		a,
+		summary {
 			@extend %submenu-colors;
 			font-weight: 400;
 
@@ -231,7 +238,8 @@ body {
 				@extend %gcwu-theme-wb-sm-wb-navcurr;
 			}
 
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				text-decoration: underline;
 			}
 		}
@@ -248,18 +256,6 @@ body {
 	}
 }
 
-body {
-	> {
-		main {
-			@extend %page-background;
-		}
-
-		header + .container {
-			@extend %page-background;
-		}
-	}
-}
-
 #wb-cont {
 	margin-top: 20px;
 }
@@ -272,26 +268,28 @@ body {
 #wb-sec {
 	margin-top: 20px;
 	padding-bottom: 2em;
+
 	h3 {
-		padding: 15px;
-		margin: 0;
 		border: 1px solid #ddd;
 		border-bottom: 3px solid #666;
 		font-size: 1em;
+		margin: 0;
+		padding: 15px;
 
 		a {
 			color: #333;
 			text-decoration: none;
 		}
 	}
+
 	.list-group {
 		margin-bottom: 0;
 
 		a {
 			&.list-group-item {
 				background: $clrWhite;
-				color: $clrDark;
 				border-radius: 0;
+				color: $clrDark;
 				margin-top: -1px;
 				text-decoration: none;
 
@@ -300,7 +298,8 @@ body {
 				}
 
 				&[href] {
-					&:hover, &:focus {
+					&:hover,
+					&:focus {
 						@extend %secmenu-wet-theme-menuitem-curr-hover-focus;
 					}
 				}
@@ -325,12 +324,10 @@ body {
 					@extend %page-background;
 					background: transparent;
 					content: " ";
-					margin: {
-						left: -15px;
-						right: -15px;
-					}
 					display: block;
 					height: 25px;
+					margin-left: -15px;
+					margin-right: -15px;
 				}
 			}
 		}
@@ -346,8 +343,8 @@ body {
 	}
 
 	li {
-		margin: 12px 0 13px 40px;
 		line-height: normal;
+		margin: 12px 0 13px 40px;
 
 		&:first-child {
 			margin-left: 0;
@@ -362,7 +359,7 @@ body {
 			text-transform: uppercase;
 
 			&:after {
-				content:"\a";
+				content: "\a";
 				white-space: pre;
 			}
 		}
@@ -376,10 +373,10 @@ body {
 
 	a {
 		border-left: 1px solid $screen-md-canadaca-divider-color;
-		padding-left: 44px;
 		display: inline-block;
+		font-size: 160%;
+		padding-left: 44px;
 		vertical-align: middle;
-		font-size: 160%
 	}
 }
 
@@ -401,15 +398,12 @@ body {
 		@extend %float-left;
 
 		a {
-			border: {
-				left: 0;
-				right: 1px solid $gc-header-footer-divider-color;
-			}
+			border-left: 0;
+			border-right: 1px solid $gc-header-footer-divider-color;
 		}
 
 		> {
 			&:first-child {
-
 				a {
 					border-right: 0;
 				}
@@ -448,18 +442,14 @@ body {
 
 	#canada-ca {
 		@extend %float-left;
-		padding-right: 0;
 		padding-left: 5px;
+		padding-right: 0;
 
 		a {
-			border: {
-				left: 0;
-				right: 1px solid $screen-md-canadaca-divider-color;
-			}
-			padding: {
-				left: 0;
-				right: 44px;
-			}
+			border-left: 0;
+			border-right: 1px solid $screen-md-canadaca-divider-color;
+			padding-left: 0;
+			padding-right: 44px;
 		}
 	}
 }
